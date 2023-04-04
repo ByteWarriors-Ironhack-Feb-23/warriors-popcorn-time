@@ -1,33 +1,17 @@
+import movies from "../data/movies.json";
+
 import "./Main.css"
 
 function Main(){
 
-    const moviesArray = [
-        {
-          "id": 1,
-          "title": "The Godfather",
-          "rating": 9
-        },
-        {
-          "id": 2,
-          "title": "Forrest Gump",
-          "rating": 9
-        },
-        {
-          "id": 3,
-          "title": "Gladiator",
-          "rating": 8
-        },
-      ]
-
-
     return(
         <div className="Main">
-            {moviesArray.map( (movieObj) => {
+            {movies.map( movieObj => {
                 return(
                     <div key={movieObj.id} className="card">
-                        <p>{movieObj.title}</p>
-                        <p>Rating: {movieObj.rating}</p>
+                        <h2>{movieObj.title}</h2>
+                        <h3>Rating: {movieObj.rating}</h3>
+                        <h3>Year: {movieObj.year}</h3>
                     </div>
                 );
             })}
