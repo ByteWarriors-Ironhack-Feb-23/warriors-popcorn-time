@@ -1,5 +1,6 @@
 import { useState } from "react";
 import moviesFromJson from "../data/movies.json";
+import Movie from "./Movie";
 
 import "./Main.css"
 
@@ -7,6 +8,8 @@ function Main(){
 
     const [moviesArr, setMoviesArr] = useState(moviesFromJson);
     
+
+
     const deleteMovie = (movieId) => {
 
         // const newList = moviesArr.filter( (movieDetails) => {
@@ -39,26 +42,10 @@ function Main(){
             
             {title}
 
-            {moviesArr.map( movieObj => {
-                return(
-                    <div key={movieObj.id} className="card">
-                        <h2>{movieObj.title}</h2>
-
-                        {movieObj.imgURL 
-                            ? <img src={movieObj.imgURL} alt={movieObj.title} /> 
-                            : <img src="https://dummyimage.com/182x268/aaaaaa/000000" />
-                        }
-
-                        <h3>Rating: {movieObj.rating}</h3>
-                        <h3>Year: {movieObj.year}</h3>
-
-                        {movieObj.rating > 8 && <p className="badge">RECOMMENDED</p>}
-                        
-
-                        <button onClick={ () => {deleteMovie(movieObj.id)} }>Delete</button>
-                    </div>
-                );
+            {moviesArr.map( (movieObj) => {
+                return <Movie key={movieObj.id} movieDetails={movieObj} callbackToDelete={deleteMovie} />
             })}
+
         </div>
     )
 }
