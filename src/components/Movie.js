@@ -10,12 +10,13 @@ function Movie(props) {
             }
 
             <h3>Rating: {props.movieDetails.rating}</h3>
-            <h3>Year: {props.movieDetails.year}</h3>
-
+            
+            {props.movieDetails.year && <h3>Year: {props.movieDetails.year}</h3> }
+            
             {props.movieDetails.rating > 8 && <p className="badge">RECOMMENDED</p>}
 
 
-            <button onClick={() => {props.callbackToDelete(props.movieDetails.id)}}>Delete</button>
+            <button onClick={() => {props.callbackToDelete(props.movieDetails.title)}}>Delete</button>
         </div>
     )
 }

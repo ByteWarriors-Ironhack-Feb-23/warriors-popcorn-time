@@ -8,8 +8,8 @@ function Main(props){
     return(
         <div className="Main">
 
-            {props.moviesArr.map( (movieObj) => {
-                return <Movie key={movieObj.id} movieDetails={movieObj} callbackToDelete={props.callbackToDelete}  />
+            {props.moviesArr.map( (movieObj, index) => {
+                return <Movie key={index} movieDetails={movieObj} callbackToDelete={props.callbackToDelete}  />
             })}
 
         </div>
